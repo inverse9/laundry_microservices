@@ -8,6 +8,9 @@ const notification = require("./routes/notification");
 const laundry = require("./routes/laundry");
 const barang = require("./routes/barang");
 const driver = require("./routes/driver");
+const user = require("./routes/user");
+const order = require("./routes/order");
+const service = require("./routes/service");
 
 const app = express();
 const PORT = 3000;
@@ -22,6 +25,9 @@ if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
 }
 
+app.use("/user", user);
+app.use("/service", service);
+app.use("/order", order);
 app.use("/notification_content", notificationContent);
 app.use("/notification", notification);
 app.use("/laundry", laundry);
