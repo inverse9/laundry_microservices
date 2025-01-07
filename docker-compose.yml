@@ -1,0 +1,9 @@
+services:
+  be:
+    build: ./
+    ports:
+      - 3000:3000
+  fe:
+    build: ..\laundry-fe
+    ports:
+      - 5173:5173
