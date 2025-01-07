@@ -1,9 +1,13 @@
+version: "3"
 services:
   be:
     build: ./
     ports:
-      - 3000:3000
+      - "3000:3000"
   fe:
-    build: ..\laundry-fe
+    build: ../laundry-fe
     ports:
-      - 5173:5173
+      - "5173:5173"
+    environment:
+      - NODE_ENV=development
+    command: ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
