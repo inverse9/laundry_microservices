@@ -25,9 +25,9 @@ if (!fs.existsSync(uploadDir)) {
   fs.mkdirSync(uploadDir);
 }
 
-app.use("/user", user);
-app.use("/service", service);
-app.use("/order", order);
+// app.use("/user", user);
+// app.use("/service", service);
+// app.use("/order", order);
 app.use("/notification_content", notificationContent);
 app.use("/notification", notification);
 app.use("/laundry", laundry);
