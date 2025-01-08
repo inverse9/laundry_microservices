@@ -1,9 +1,13 @@
 version: "3"
 services:
-  be:
+  be-wahyu:
     build: ./
     ports:
       - "3000:3000"
+  be-adjie:
+    build: ../laundry-api
+    ports:
+      - "3001:3001"
   fe:
     build: ../laundry-fe
     ports:
