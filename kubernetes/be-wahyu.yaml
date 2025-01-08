@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: be-wahyu
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: be-wahyu
+  template:
+    metadata:
+      labels:
+        app: be-wahyu
+    spec:
+      containers:
+        - name: be-wahyu
+          image: be-wahyu-image
+          ports:
+            - containerPort: 3000
+          env:
+            - name: SUPABASE_URL
+              value: "https://mrqxfpnvawbiyhpdrbju.supabase.co"
+            - name: SUPABASE_KEY
+              value: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im1ycXhmcG52YXdiaXlocGRyYmp1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzE5MDM1NjAsImV4cCI6MjA0NzQ3OTU2MH0.ZzJ0SZkDi7gZoaVQek4h3Nl4YLm16N9cpaq7CSAvRqE"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: be-wahyu
+spec:
+  selector:
+    app: be-wahyu
+  ports:
+    - protocol: TCP
+      port: 3000
+      targetPort: 3000
